@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03410AE51AB97DDA00BADC4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03410AE41AB97DDA00BADC4A /* RegisterViewController.m */; };
 		037A0CC51AB965CB0056F65E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 037A0CC41AB965CB0056F65E /* main.m */; };
 		037A0CC81AB965CB0056F65E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 037A0CC71AB965CB0056F65E /* AppDelegate.m */; };
 		037A0CCB1AB965CB0056F65E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037A0CCA1AB965CB0056F65E /* LoginViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03410AE31AB97DDA00BADC4A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		03410AE41AB97DDA00BADC4A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		037A0CBF1AB965CB0056F65E /* iWantTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWantTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		037A0CC31AB965CB0056F65E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037A0CC41AB965CB0056F65E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 			children = (
 				037A0CC61AB965CB0056F65E /* AppDelegate.h */,
 				037A0CC71AB965CB0056F65E /* AppDelegate.m */,
+				03410AE31AB97DDA00BADC4A /* RegisterViewController.h */,
+				03410AE41AB97DDA00BADC4A /* RegisterViewController.m */,
 				037A0CC91AB965CB0056F65E /* LoginViewController.h */,
 				037A0CCA1AB965CB0056F65E /* LoginViewController.m */,
 				037A0CCC1AB965CB0056F65E /* Main.storyboard */,
@@ -222,6 +227,7 @@
 				037A0CCB1AB965CB0056F65E /* LoginViewController.m in Sources */,
 				037A0CC81AB965CB0056F65E /* AppDelegate.m in Sources */,
 				037A0CC51AB965CB0056F65E /* main.m in Sources */,
+				03410AE51AB97DDA00BADC4A /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +421,7 @@
 				037A0CE41AB965CB0056F65E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		037A0CE51AB965CB0056F65E /* Build configuration list for PBXNativeTarget "iWantToTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +430,7 @@
 				037A0CE71AB965CB0056F65E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
