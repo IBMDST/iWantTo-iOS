@@ -1,2 +1,2 @@
 # iWantTo-iOS
-Code repository for iWantTo project (iOS plateform)
+Code repository for iWantTo project (iOS platform)
