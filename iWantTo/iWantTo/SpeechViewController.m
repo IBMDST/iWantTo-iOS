@@ -1,18 +1,18 @@
 //
-//  TopicListViewController.m
+//  SpeechViewController.m
 //  iWantTo
 //
-//  Created by Josh on 3/23/15.
+//  Created by Josh on 3/26/15.
 //  Copyright (c) 2015 Josh. All rights reserved.
 //
 
-#import "TopicListViewController.h"
+#import "SpeechViewController.h"
 
-@interface TopicListViewController ()
+@interface SpeechViewController ()
 
 @end
 
-@implementation TopicListViewController
+@implementation SpeechViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -24,4 +24,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)completeTextInputting:(id)sender
+{
+    [_usernameTF resignFirstResponder];
+    [_passwordTF resignFirstResponder];
+}
+
 @end

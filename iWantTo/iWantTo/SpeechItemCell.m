@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Josh. All rights reserved.
 //
 
-#import "TopicItemCell.h"
+#import "SpeechItemCell.h"
 
-@implementation TopicItemCell
+@implementation SpeechItemCell
 
 - (void)awakeFromNib {
     // Initialization code

@@ -10,6 +10,10 @@
 
 @interface LoginViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UITextField *usernameTF;
+@property (nonatomic, strong) IBOutlet UITextField *passwordTF;
+
+- (IBAction)completeTextInputting:(id)sender;
 
 @end
 

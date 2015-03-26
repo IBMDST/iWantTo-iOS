@@ -33,5 +33,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)completeTextInputting:(id)sender
+{
+    [_usernameTF resignFirstResponder];
+    [_passwordTF resignFirstResponder];
+    [_retypeTF resignFirstResponder];
+    [_emailTF resignFirstResponder];
+}
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SpeechItemCell.h"
 
-@interface TopicListViewController : UIViewController
+@interface SpeechListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

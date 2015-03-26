@@ -10,4 +10,11 @@
 
 @interface RegisterViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UITextField *usernameTF;
+@property (nonatomic, strong) IBOutlet UITextField *passwordTF;
+@property (nonatomic, strong) IBOutlet UITextField *retypeTF;
+@property (nonatomic, strong) IBOutlet UITextField *emailTF;
+
+- (IBAction)completeTextInputting:(id)sender;
+
 @end

@@ -15,6 +15,9 @@
 		037A0CD01AB965CB0056F65E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 037A0CCF1AB965CB0056F65E /* Images.xcassets */; };
 		037A0CD31AB965CB0056F65E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037A0CD11AB965CB0056F65E /* LaunchScreen.xib */; };
 		037A0CDF1AB965CB0056F65E /* iWantToTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 037A0CDE1AB965CB0056F65E /* iWantToTests.m */; };
+		037B960F1AC0508900515377 /* SpeechListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B960E1AC0508900515377 /* SpeechListViewController.m */; };
+		037B96121AC2F42100515377 /* SpeechItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B96111AC2F42100515377 /* SpeechItemCell.m */; };
+		037B96161AC4248A00515377 /* SpeechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B96151AC4248A00515377 /* SpeechViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,12 @@
 		037A0CD81AB965CB0056F65E /* iWantToTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWantToTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037A0CDD1AB965CB0056F65E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037A0CDE1AB965CB0056F65E /* iWantToTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iWantToTests.m; sourceTree = "<group>"; };
+		037B960D1AC0508900515377 /* SpeechListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechListViewController.h; sourceTree = "<group>"; };
+		037B960E1AC0508900515377 /* SpeechListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechListViewController.m; sourceTree = "<group>"; };
+		037B96101AC2F42100515377 /* SpeechItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechItemCell.h; sourceTree = "<group>"; };
+		037B96111AC2F42100515377 /* SpeechItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechItemCell.m; sourceTree = "<group>"; };
+		037B96141AC4248A00515377 /* SpeechViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechViewController.h; sourceTree = "<group>"; };
+		037B96151AC4248A00515377 /* SpeechViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,15 +93,20 @@
 		037A0CC11AB965CB0056F65E /* iWantTo */ = {
 			isa = PBXGroup;
 			children = (
+				037B96131AC2F42700515377 /* Component */,
 				037A0CC61AB965CB0056F65E /* AppDelegate.h */,
 				037A0CC71AB965CB0056F65E /* AppDelegate.m */,
 				03410AE31AB97DDA00BADC4A /* RegisterViewController.h */,
 				03410AE41AB97DDA00BADC4A /* RegisterViewController.m */,
 				037A0CC91AB965CB0056F65E /* LoginViewController.h */,
 				037A0CCA1AB965CB0056F65E /* LoginViewController.m */,
+				037B960D1AC0508900515377 /* SpeechListViewController.h */,
+				037B960E1AC0508900515377 /* SpeechListViewController.m */,
+				037B96141AC4248A00515377 /* SpeechViewController.h */,
+				037B96151AC4248A00515377 /* SpeechViewController.m */,
 				037A0CCC1AB965CB0056F65E /* Main.storyboard */,
-				037A0CCF1AB965CB0056F65E /* Images.xcassets */,
 				037A0CD11AB965CB0056F65E /* LaunchScreen.xib */,
+				037A0CCF1AB965CB0056F65E /* Images.xcassets */,
 				037A0CC21AB965CB0056F65E /* Supporting Files */,
 			);
 			path = iWantTo;
@@ -122,6 +136,15 @@
 				037A0CDD1AB965CB0056F65E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		037B96131AC2F42700515377 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				037B96101AC2F42100515377 /* SpeechItemCell.h */,
+				037B96111AC2F42100515377 /* SpeechItemCell.m */,
+			);
+			name = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,8 +249,11 @@
 			files = (
 				037A0CCB1AB965CB0056F65E /* LoginViewController.m in Sources */,
 				037A0CC81AB965CB0056F65E /* AppDelegate.m in Sources */,
+				037B96161AC4248A00515377 /* SpeechViewController.m in Sources */,
+				037B96121AC2F42100515377 /* SpeechItemCell.m in Sources */,
 				037A0CC51AB965CB0056F65E /* main.m in Sources */,
 				03410AE51AB97DDA00BADC4A /* RegisterViewController.m in Sources */,
+				037B960F1AC0508900515377 /* SpeechListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chao Liu (47F5WRP52Z)";
 				INFOPLIST_FILE = iWantTo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2071cd71-9925-4ea9-83c7-d21f6632865c";
@@ -362,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iWantTo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2071cd71-9925-4ea9-83c7-d21f6632865c";
