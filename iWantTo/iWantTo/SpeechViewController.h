@@ -10,4 +10,6 @@
 
 @interface SpeechViewController : UIViewController
 
+- (IBAction)publishButtonHandler:(id)sender;
+
 @end
