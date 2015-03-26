@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PaA-GN-pfa">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -27,7 +28,7 @@
                                     <action selector="completeTextInputting:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0hC-Yf-0sl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWf-bL-Q7L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWf-bL-Q7L">
                                 <rect key="frame" x="16" y="211" width="79" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7de-B8-4Ng"/>
@@ -48,7 +49,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5y0-w2-WEz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5y0-w2-WEz">
                                 <rect key="frame" x="16" y="268" width="76" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="9Pp-Jt-pFD"/>
@@ -101,7 +102,7 @@
                                     <segue destination="z3s-8p-5da" kind="show" identifier="registerView" id="IyM-Ub-nZ1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aw-6X-sct">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aw-6X-sct">
                                 <rect key="frame" x="277" y="391" width="48" height="30"/>
                                 <color key="backgroundColor" red="0.13725490868091583" green="0.78039222955703735" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -125,7 +126,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="STP-jr-C1J" kind="presentation" identifier="topicLisView" modalTransitionStyle="crossDissolve" id="sT2-rH-iv4"/>
+                                    <segue destination="STP-jr-C1J" kind="presentation" identifier="speechListView" modalTransitionStyle="crossDissolve" id="sT2-rH-iv4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -269,9 +270,6 @@
                                 <state key="normal" title="New Topic">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="7Jh-8Y-2I9" kind="show" identifier="newSpeech" id="8BD-7E-0IL"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bj6-ok-qnb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -320,9 +318,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="2" y="109" width="398" height="691"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="s5F-nz-B8f" id="pM1-w9-HC3"/>
                                     <outlet property="delegate" destination="tUy-YY-oaT" id="fbD-79-0oa"/>
@@ -344,8 +339,8 @@
                             <constraint firstItem="CZA-zc-Mkp" firstAttribute="top" secondItem="bj6-ok-qnb" secondAttribute="bottom" id="go1-P4-58j">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="bj6-ok-qnb" firstAttribute="top" secondItem="qxD-c7-NWm" secondAttribute="bottom" constant="50" id="zoI-Oe-2G6">
-                                <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                            <constraint firstItem="bj6-ok-qnb" firstAttribute="top" secondItem="qxD-c7-NWm" secondAttribute="bottom" id="s1m-jt-QmR">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
@@ -353,29 +348,35 @@
                                 <exclude reference="RS8-kD-1uJ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="F8c-vj-6Bd"/>
-                                <exclude reference="zoI-Oe-2G6"/>
-                                <exclude reference="go1-P4-58j"/>
                                 <exclude reference="A2I-D3-KjB"/>
                                 <exclude reference="Yh3-2y-guN"/>
+                                <exclude reference="F8c-vj-6Bd"/>
+                                <exclude reference="s1m-jt-QmR"/>
+                                <exclude reference="go1-P4-58j"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="RS8-kD-1uJ"/>
+                                <exclude reference="RS8-kD-1uJ"/>
                                 <include reference="bj6-ok-qnb"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="F8c-vj-6Bd"/>
-                                <include reference="VOJ-kg-GqG"/>
-                                <include reference="zoI-Oe-2G6"/>
-                                <include reference="go1-P4-58j"/>
                                 <include reference="A2I-D3-KjB"/>
                                 <include reference="Yh3-2y-guN"/>
+                                <include reference="F8c-vj-6Bd"/>
+                                <include reference="VOJ-kg-GqG"/>
+                                <include reference="s1m-jt-QmR"/>
+                                <include reference="go1-P4-58j"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="I Want To" id="tUy-YY-oaT"/>
+                    <navigationItem key="navigationItem" title="I Want To" id="tUy-YY-oaT">
+                        <barButtonItem key="rightBarButtonItem" title="New Topic" id="a9J-9L-R53">
+                            <connections>
+                                <segue destination="7Jh-8Y-2I9" kind="show" identifier="speechView" id="HRk-hm-8WX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pss-yS-7cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
