@@ -10,6 +10,9 @@
 
 @interface SpeechViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIButton *likeButton;
+
 - (IBAction)publishButtonHandler:(id)sender;
+
 
 @end

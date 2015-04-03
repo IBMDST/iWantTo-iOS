@@ -36,7 +36,9 @@
 
 - (IBAction)publishButtonHandler:(id)sender
 {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+
 
 @end

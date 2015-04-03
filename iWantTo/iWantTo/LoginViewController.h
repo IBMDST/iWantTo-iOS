@@ -14,6 +14,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *passwordTF;
 
 - (IBAction)completeTextInputting:(id)sender;
+- (IBAction)signinButtonHander:(id)sender;
 
 @end
 
