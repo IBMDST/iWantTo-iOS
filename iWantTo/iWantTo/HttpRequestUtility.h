@@ -13,6 +13,6 @@
 
 @interface HttpRequestUtility : NSObject
 
-+ (void)sendRequestFromAPIPath:(NSString *)api withPath:(NSString *)path parameters:(NSDictionary *)params runOnSuccess:(void(^)(MKNetworkOperation *completedOperation)) onSuccess;
-
++ (void)sendPostFromAPIPath:(NSString *)api withPath:(NSString *)path parameters:(NSDictionary *)params runOnSuccess:(void(^)(MKNetworkOperation *completedOperation)) onSuccess runOnFailed:(void(^)(MKNetworkOperation *completedOperation, NSError *error)) onFailed;
++ (void)sendGetFromAPIPath:(NSString *)api withPath:(NSString *)path parameters:(NSDictionary *)params runOnSuccess:(void(^)(MKNetworkOperation *completedOperation)) onSuccess runOnFailed:(void(^)(MKNetworkOperation *completedOperation, NSError *error)) onFailed;
 @end

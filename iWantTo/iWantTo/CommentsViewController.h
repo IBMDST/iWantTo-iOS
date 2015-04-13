@@ -10,4 +10,8 @@
 
 @interface CommentsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) UITableView *commentsListTable;
+
+@property (nonatomic, strong) NSArray *commentListArray;
+
 @end

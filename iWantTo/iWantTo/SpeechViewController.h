@@ -8,11 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, SpeechViewType) {
+    SpeechViewTypeNew = 0,
+    SpeechViewTypeReadonly = 1,
+    SpeechViewTypeEditable = 2
+};
+
 @interface SpeechViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIButton *likeButton;
+@property (nonatomic, strong) IBOutlet UITextField *subjectTF;
+@property (nonatomic, strong) IBOutlet UITextView *descTV;
+@property (nonatomic, strong) IBOutlet UILabel *speakerLab;
+
+@property (nonatomic, assign) SpeechViewType viewType;
+@property (nonatomic, strong) NSDictionary *speechItem;
 
 - (IBAction)publishButtonHandler:(id)sender;
+
+- (void)initializeTextComponents;
 
 
 @end

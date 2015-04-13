@@ -35,6 +35,8 @@
 		03E9FC161AC949E600A82776 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E9FC151AC949E600A82776 /* ImageIO.framework */; };
 		03E9FC1B1ACD2E9C00A82776 /* GlobalVariableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9FC1A1ACD2E9C00A82776 /* GlobalVariableManager.m */; };
 		03E9FC1F1ACD7C2D00A82776 /* HttpRequestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9FC1E1ACD7C2D00A82776 /* HttpRequestUtility.m */; };
+		03E9FC221ACE8D9A00A82776 /* PromptUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9FC211ACE8D9A00A82776 /* PromptUtility.m */; };
+		03E9FC251ACE906500A82776 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9FC241ACE906500A82776 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,10 @@
 		03E9FC1A1ACD2E9C00A82776 /* GlobalVariableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariableManager.m; sourceTree = "<group>"; };
 		03E9FC1D1ACD7C2D00A82776 /* HttpRequestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestUtility.h; sourceTree = "<group>"; };
 		03E9FC1E1ACD7C2D00A82776 /* HttpRequestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestUtility.m; sourceTree = "<group>"; };
+		03E9FC201ACE8D9A00A82776 /* PromptUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromptUtility.h; sourceTree = "<group>"; };
+		03E9FC211ACE8D9A00A82776 /* PromptUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromptUtility.m; sourceTree = "<group>"; };
+		03E9FC231ACE906500A82776 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		03E9FC241ACE906500A82776 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 		037A0CC21AB965CB0056F65E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03E9FC261ACE907100A82776 /* MBProgressHUD */,
 				03E9FBE51AC9494400A82776 /* MKNetworkKit */,
 				037A0CC31AB965CB0056F65E /* Info.plist */,
 				037A0CC41AB965CB0056F65E /* main.m */,
@@ -314,8 +321,19 @@
 				03E9FC1A1ACD2E9C00A82776 /* GlobalVariableManager.m */,
 				03E9FC1D1ACD7C2D00A82776 /* HttpRequestUtility.h */,
 				03E9FC1E1ACD7C2D00A82776 /* HttpRequestUtility.m */,
+				03E9FC201ACE8D9A00A82776 /* PromptUtility.h */,
+				03E9FC211ACE8D9A00A82776 /* PromptUtility.m */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		03E9FC261ACE907100A82776 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				03E9FC231ACE906500A82776 /* MBProgressHUD.h */,
+				03E9FC241ACE906500A82776 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +449,8 @@
 				03E9FBFF1AC9494400A82776 /* NSDate+RFC1123.m in Sources */,
 				03E9FC001AC9494400A82776 /* NSDictionary+RequestEncoding.m in Sources */,
 				037A0CC51AB965CB0056F65E /* main.m in Sources */,
+				03E9FC221ACE8D9A00A82776 /* PromptUtility.m in Sources */,
+				03E9FC251ACE906500A82776 /* MBProgressHUD.m in Sources */,
 				03E9FBFE1AC9494400A82776 /* NSData+MKBase64.m in Sources */,
 				03410AE51AB97DDA00BADC4A /* RegisterViewController.m in Sources */,
 				03E9FC031AC9494400A82776 /* UIImageView+MKNetworkKitAdditions.m in Sources */,

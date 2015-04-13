@@ -11,4 +11,10 @@
 
 @interface SpeechListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
+@property(nonatomic, strong) NSArray *speechListArray;
+
+@property(nonatomic, strong) IBOutlet UITableView *speechListTable;
+
+- (IBAction)newTopicButtonHandler:(id)sender;
+
 @end

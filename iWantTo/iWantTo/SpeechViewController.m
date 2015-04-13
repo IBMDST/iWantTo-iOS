@@ -7,6 +7,8 @@
 //
 
 #import "SpeechViewController.h"
+#import "GlobalVariableManager.h"
+#import "CommentsViewController.h"
 
 @interface SpeechViewController ()
 
@@ -16,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initializeTextComponents];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,19 +26,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    CommentsViewController *cvc = [segue destinationViewController];
+    cvc.commentListArray = [_speechItem objectForKey:@"comments"];
 }
-*/
+
 
 - (IBAction)publishButtonHandler:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)initializeTextComponents
+{
+    if (_viewType == SpeechViewTypeReadonly) {
+        _descTV.text = [_speechItem objectForKey:@"description"];
+        _subjectTF.text = [_speechItem objectForKey:@"subject"];
+        _speakerLab.text = [_speechItem objectForKey:@"speakerName"];
+        [_descTV setEditable:NO];
+        [_subjectTF setEnabled:NO];
+    }
+    else if(_viewType == SpeechViewTypeNew){
+        _descTV.text = @"";
+        _subjectTF.text = @"";
+        _speakerLab.text = [GlobalVariableManager sharedInstance].username;
+        [_descTV setEditable:YES];
+        [_subjectTF setEnabled:YES];
+    }
+    else{
+        _descTV.text = [_speechItem objectForKey:@"description"];
+        _subjectTF.text = [_speechItem objectForKey:@"subject"];
+        _speakerLab.text = [_speechItem objectForKey:@"speakerName"];
+        [_descTV setEditable:YES];
+        [_subjectTF setEnabled:YES];
+    }
 }
 
 
