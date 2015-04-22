@@ -18,8 +18,10 @@ typedef NS_ENUM(NSInteger, SpeechViewType) {
 
 @property (nonatomic, strong) IBOutlet UIButton *likeButton;
 @property (nonatomic, strong) IBOutlet UITextField *subjectTF;
+@property (nonatomic, strong) IBOutlet UILabel *subjectLab;
 @property (nonatomic, strong) IBOutlet UITextView *descTV;
 @property (nonatomic, strong) IBOutlet UILabel *speakerLab;
+@property (nonatomic, strong) IBOutlet UINavigationItem *publishButton;
 
 @property (nonatomic, assign) SpeechViewType viewType;
 @property (nonatomic, strong) NSDictionary *speechItem;
@@ -27,6 +29,6 @@ typedef NS_ENUM(NSInteger, SpeechViewType) {
 - (IBAction)publishButtonHandler:(id)sender;
 
 - (void)initializeTextComponents;
-
+- (void)borderedTextView;
 
 @end

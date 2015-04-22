@@ -39,9 +39,10 @@
 + (void)showLoadingHUDInController:(UIViewController *)controller;
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:controller.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
+
     hud.labelText = @"Loading";
 }
+
 + (void)hideLoadingHUDInThreadWithController:(UIViewController *)controller{
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         // Do something...

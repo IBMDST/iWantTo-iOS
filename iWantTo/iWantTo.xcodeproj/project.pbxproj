@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0328E9541AE0FA3F003A948A /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328E9531AE0FA3F003A948A /* CommentCell.m */; };
 		03410AE51AB97DDA00BADC4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03410AE41AB97DDA00BADC4A /* RegisterViewController.m */; };
 		037A0CC51AB965CB0056F65E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 037A0CC41AB965CB0056F65E /* main.m */; };
 		037A0CC81AB965CB0056F65E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 037A0CC71AB965CB0056F65E /* AppDelegate.m */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0328E9521AE0FA3F003A948A /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		0328E9531AE0FA3F003A948A /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		03410AE31AB97DDA00BADC4A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		03410AE41AB97DDA00BADC4A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		037A0CBF1AB965CB0056F65E /* iWantTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWantTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +133,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0328E9551AE0FA44003A948A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0328E9521AE0FA3F003A948A /* CommentCell.h */,
+				0328E9531AE0FA3F003A948A /* CommentCell.m */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		037A0CB61AB965CB0056F65E = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +265,7 @@
 		03E9FBE41AC93C9E00A82776 /* CommentsView */ = {
 			isa = PBXGroup;
 			children = (
+				0328E9551AE0FA44003A948A /* Components */,
 				03E9FBDC1AC57E9000A82776 /* CommentsViewController.h */,
 				03E9FBDD1AC57E9000A82776 /* CommentsViewController.m */,
 			);
@@ -385,6 +398,7 @@
 				TargetAttributes = {
 					037A0CBE1AB965CB0056F65E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 4YWVVW6J4G;
 					};
 					037A0CD71AB965CB0056F65E = {
 						CreatedOnToolsVersion = 6.2;
@@ -448,6 +462,7 @@
 				037B96121AC2F42100515377 /* SpeechItemCell.m in Sources */,
 				03E9FBFF1AC9494400A82776 /* NSDate+RFC1123.m in Sources */,
 				03E9FC001AC9494400A82776 /* NSDictionary+RequestEncoding.m in Sources */,
+				0328E9541AE0FA3F003A948A /* CommentCell.m in Sources */,
 				037A0CC51AB965CB0056F65E /* main.m in Sources */,
 				03E9FC221ACE8D9A00A82776 /* PromptUtility.m in Sources */,
 				03E9FC251ACE906500A82776 /* MBProgressHUD.m in Sources */,
@@ -579,6 +594,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chao Liu (47F5WRP52Z)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = iWantTo/PrefixHeader.pch;
@@ -586,7 +602,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2071cd71-9925-4ea9-83c7-d21f6632865c";
+				PROVISIONING_PROFILE = "072e6929-d4ac-423c-a275-46993130cf64";
 			};
 			name = Debug;
 		};
@@ -594,13 +610,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = iWantTo/PrefixHeader.pch;
 				INFOPLIST_FILE = iWantTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2071cd71-9925-4ea9-83c7-d21f6632865c";
+				PROVISIONING_PROFILE = "072e6929-d4ac-423c-a275-46993130cf64";
 			};
 			name = Release;
 		};

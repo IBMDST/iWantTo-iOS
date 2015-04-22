@@ -10,8 +10,15 @@
 
 @interface CommentsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *commentsListTable;
+@property (nonatomic, strong) IBOutlet UITableView *commentsListTable;
+@property (nonatomic, strong) IBOutlet UITextView *commentTV;
 
-@property (nonatomic, strong) NSArray *commentListArray;
+@property (nonatomic, strong) NSMutableArray *commentListArray;
+@property (nonatomic, strong) NSString *speechID;
+
+- (NSString *)DateStringFromtimeInterval:(double)timeInterval;
+
+- (IBAction)commentButtonHandler:(id)sender;
+- (void)borderedTextView;
 
 @end

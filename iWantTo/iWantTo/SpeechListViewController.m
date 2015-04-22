@@ -104,6 +104,7 @@
 {
     SpeechItemCell *selectedCell = (SpeechItemCell *)[tableView cellForRowAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"speechView" sender:selectedCell];
+    
 }
 
 

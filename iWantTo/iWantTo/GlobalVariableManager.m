@@ -18,7 +18,7 @@
     });
     
     sharedInstance.baseURL = @"share.in-sync.co";
-    sharedInstance.port = 2403;
+    sharedInstance.port = 80;
     
     return sharedInstance;
 }
