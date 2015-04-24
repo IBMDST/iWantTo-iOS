@@ -11,6 +11,7 @@
 #import "CommentsViewController.h"
 #import "HttpRequestUtility.h"
 #import "PromptUtility.h"
+#import "DatetimeUtility.h"
 
 @interface SpeechViewController ()
 
@@ -20,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self initializeTextComponents];
 }
 
@@ -44,9 +46,10 @@
     [_descTV resignFirstResponder];
     [_subjectTF resignFirstResponder];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:4];
-    NSString *timestamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]] ;
+    NSString *timestamp = [DatetimeUtility currentTimestampStringSince1970] ;
+    NSString *pedDesc = [NSString stringWithFormat:@"<p>%@</p>", _descTV.text];
     [params setObject:_subjectTF.text forKey:@"subject"];
-    [params setObject:_descTV.text forKey:@"description"];
+    [params setObject:pedDesc forKey:@"description"];
     [params setObject:[GlobalVariableManager sharedInstance].userID forKey:@"speakerID"];
     [params setObject:timestamp forKey:@"createdOn"];
     
@@ -85,7 +88,8 @@
 - (void)initializeTextComponents
 {
     if (_viewType == SpeechViewTypeReadonly) {
-        _descTV.text = [_speechItem objectForKey:@"description"];
+//        _descTV.text = [_speechItem objectForKey:@"description"];
+        [self displayingHTMLContentInTextView];
         _subjectLab.text = [_speechItem objectForKey:@"subject"];
         _speakerLab.text = [_speechItem objectForKey:@"speakerName"];
         [_descTV setEditable:NO];
@@ -101,12 +105,14 @@
         [_descTV setEditable:YES];
         [_subjectTF setHidden:NO];
         [_subjectLab setHidden:YES];
+        [_viewCommentsButton setHidden:YES];
+        [_likeButton setHidden:YES];
         self.navigationItem.rightBarButtonItem.title = @"Publish";
         [self borderedTextView];
-
     }
     else{
         _descTV.text = [_speechItem objectForKey:@"description"];
+//        [self displayingHTMLContentInTextView];
         _subjectTF.text = [_speechItem objectForKey:@"subject"];
         _speakerLab.text = [_speechItem objectForKey:@"speakerName"];
         [_descTV setEditable:YES];
@@ -122,6 +128,23 @@
     [_descTV.layer setBorderWidth:1.0];
     _descTV.layer.cornerRadius = 5;
     _descTV.clipsToBounds = YES;
+}
+
+- (void)displayingHTMLContentInTextView
+{
+    NSString * htmlString = [_speechItem objectForKey:@"description"];
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    _descTV.attributedText = attributedString;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"]) {
+        [_descTV resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
 }
 
 

@@ -7,6 +7,10 @@
 //
 
 #import "RegisterViewController.h"
+#import "HttpRequestUtility.h"
+#import "PromptUtility.h"
+#import "GlobalVariableManager.h"
+#import "DatetimeUtility.h"
 
 @interface RegisterViewController ()
 
@@ -39,6 +43,42 @@
     [_passwordTF resignFirstResponder];
     [_retypeTF resignFirstResponder];
     [_emailTF resignFirstResponder];
+    
+    if (_usernameTF.text.length <= 3) {
+        [PromptUtility showPromptWithMessage:@"The username you input must longer than 3 characters."];
+    }
+    else if(![_passwordTF.text isEqualToString:_retypeTF.text])
+    {
+        [PromptUtility showPromptWithMessage:@"The password you input is not matched."];
+    }
+    else
+    {
+        
+        [PromptUtility showHUDInController:self];
+        
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:2];
+        [params setObject:_usernameTF.text forKey:@"username"];
+        [params setObject:_passwordTF.text forKey:@"password"];
+        [params setObject:[DatetimeUtility currentTimestampStringSince1970] forKey:@"createdOn"];
+        [params setObject:_emailTF.text forKey:@"email"];
+        
+        [HttpRequestUtility sendPostFromAPIPath:@"users" withPath:@"" parameters:params runOnSuccess:^(MKNetworkOperation *completedOperation) {
+            [PromptUtility hideHUDInThreadWithController:self];
+            NSDictionary *responseInfo = completedOperation.responseJSON;
+            NSLog(@"response info:%@",responseInfo);
+            [GlobalVariableManager sharedInstance].userID = [responseInfo objectForKey:@"uid"];
+            [GlobalVariableManager sharedInstance].sessionID = [responseInfo objectForKey:@"id"];
+            [GlobalVariableManager sharedInstance].username = _usernameTF.text;
+            
+            [self performSegueWithIdentifier:@"speechListView" sender:self];
+            
+            
+        } runOnFailed:^(MKNetworkOperation *completedOperation, NSError *error) {
+            [PromptUtility hideHUDInThreadWithController:self];
+            [PromptUtility showPromptWithMessage:completedOperation.responseString];
+        }];
+    }
+    
 }
 
 @end

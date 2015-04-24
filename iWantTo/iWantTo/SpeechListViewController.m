@@ -92,7 +92,11 @@
     SpeechItemCell *topicCell = [tableView dequeueReusableCellWithIdentifier:@"SpeechItemCell"
                                                                   forIndexPath:indexPath];
     topicCell.subjectLab.text = [[_speechListArray objectAtIndex:indexPath.row] objectForKey:@"subject"];
-    topicCell.descriptionLab.text = [[_speechListArray objectAtIndex:indexPath.row] objectForKey:@"description"];
+    NSString *htmlString = [[_speechListArray objectAtIndex:indexPath.row] objectForKey:@"description"];
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    topicCell.descriptionLab.attributedText = attributedString;
+//    topicCell.descriptionLab.text = [[_speechListArray objectAtIndex:indexPath.row] objectForKey:@"description"];
+    
     
     return topicCell;
 }

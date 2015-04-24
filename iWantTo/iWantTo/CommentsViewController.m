@@ -20,8 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _commentsListTable.rowHeight = UITableViewAutomaticDimension;
-    _commentsListTable.estimatedRowHeight = 80;
+    self.commentsListTable.rowHeight = UITableViewAutomaticDimension;
+    self.commentsListTable.estimatedRowHeight = 160.0f;
     [self borderedTextView];
     // Do any additional setup after loading the view.
 }
@@ -34,6 +34,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self registerForKeyboardNotifications];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self deregisterFromKeyboardNotifications];
 }
 
 /*
@@ -54,10 +61,10 @@
     return [_commentListArray count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-    return 1;
-}
+//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+//{
+//    return 1;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -65,8 +72,9 @@
     CommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"
                                                                 forIndexPath:indexPath];
     
-    commentCell.title.text = [NSString stringWithFormat:@"%@ Created on: %@", [[_commentListArray objectAtIndex:indexPath.row] objectForKey:@"userName"], [self DateStringFromtimeInterval:[[[_commentListArray objectAtIndex:indexPath.row] objectForKey:@"createdOn"] doubleValue]]];
+    commentCell.title.text = [NSString stringWithFormat:@"%@ Created on: %@", [[_commentListArray objectAtIndex:indexPath.row] objectForKey:@"userName"], [self dateStringFromtimeInterval:[[[_commentListArray objectAtIndex:indexPath.row] objectForKey:@"createdOn"] doubleValue]]];
     commentCell.content.text = [[_commentListArray objectAtIndex:indexPath.row] objectForKey:@"comment"];
+    
     return commentCell;
 }
 
@@ -75,7 +83,7 @@
 #pragma mark -
 #pragma mark Custom methods
 
-- (NSString *)DateStringFromtimeInterval:(double)timeInterval
+- (NSString *)dateStringFromtimeInterval:(double)timeInterval
 {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -99,6 +107,7 @@
     [HttpRequestUtility sendPostFromAPIPath:@"speech-comments" withPath:@"" parameters:params runOnSuccess:^(MKNetworkOperation *completedOperation) {
 //        [_commentListArray addObject:params];
         [PromptUtility hideHUDInThreadWithController:self];
+        [self.navigationController popViewControllerAnimated:YES];
         
     } runOnFailed:^(MKNetworkOperation *completedOperation, NSError *error) {
         [PromptUtility hideHUDInThreadWithController:self];
@@ -110,6 +119,53 @@
     [_commentTV.layer setBorderWidth:1.0];
     _commentTV.layer.cornerRadius = 5;
     _commentTV.clipsToBounds = YES;
+}
+
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"]) {
+        [_commentTV resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)deregisterFromKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWasShown:(NSNotification*)notification
+{
+    NSDictionary* info = [notification userInfo];
+    CGRect keyboardRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardRect.size.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect screenRect = self.view.frame;
+    screenRect.size.height -= keyboardRect.size.height;
+    if (CGRectContainsPoint(screenRect, _commentTV.frame.origin) ) {
+        [self.scrollView scrollRectToVisible:_commentTV.frame animated:YES];
+    }
+}
+
+- (void)keyboardWillBeHidden:(NSNotification*)notification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
 }
 
 @end

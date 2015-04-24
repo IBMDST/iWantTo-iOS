@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, SpeechViewType) {
     SpeechViewTypeEditable = 2
 };
 
-@interface SpeechViewController : UIViewController
+@interface SpeechViewController : UIViewController<UITextViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIButton *likeButton;
 @property (nonatomic, strong) IBOutlet UITextField *subjectTF;
@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, SpeechViewType) {
 @property (nonatomic, strong) IBOutlet UITextView *descTV;
 @property (nonatomic, strong) IBOutlet UILabel *speakerLab;
 @property (nonatomic, strong) IBOutlet UINavigationItem *publishButton;
+@property (nonatomic, strong) IBOutlet UIButton *viewCommentsButton;
 
 @property (nonatomic, assign) SpeechViewType viewType;
 @property (nonatomic, strong) NSDictionary *speechItem;
@@ -30,5 +31,6 @@ typedef NS_ENUM(NSInteger, SpeechViewType) {
 
 - (void)initializeTextComponents;
 - (void)borderedTextView;
+- (void)displayingHTMLContentInTextView;
 
 @end
