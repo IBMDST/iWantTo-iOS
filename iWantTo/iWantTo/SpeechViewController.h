@@ -26,11 +26,16 @@ typedef NS_ENUM(NSInteger, SpeechViewType) {
 
 @property (nonatomic, assign) SpeechViewType viewType;
 @property (nonatomic, strong) NSDictionary *speechItem;
+@property (nonatomic, assign) BOOL likedSpeech;
+@property (nonatomic, strong) NSMutableDictionary *currentInterest;
 
 - (IBAction)publishButtonHandler:(id)sender;
 
 - (void)initializeTextComponents;
+- (void)initializeLikeButton;
 - (void)borderedTextView;
 - (void)displayingHTMLContentInTextView;
+- (IBAction)likeButtonHandler:(id)sender;
+- (BOOL)isLikedSpeech;
 
 @end

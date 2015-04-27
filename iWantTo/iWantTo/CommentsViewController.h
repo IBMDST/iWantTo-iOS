@@ -21,11 +21,14 @@
 
 - (IBAction)commentButtonHandler:(id)sender;
 
+
 - (void)borderedTextView;
 
 - (void)registerForKeyboardNotifications;
 - (void)deregisterFromKeyboardNotifications;
 - (void)keyboardWasShown:(NSNotification*)notification;
 - (void)keyboardWillBeHidden:(NSNotification*)notification;
+
+
 
 @end

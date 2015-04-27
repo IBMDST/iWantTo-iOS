@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self initializeLikeButton];
     [self initializeTextComponents];
 }
 
@@ -56,8 +56,9 @@
     [PromptUtility showHUDInController:self];
     
     if (_viewType == SpeechViewTypeEditable) {
-        [params setObject:[_speechItem objectForKey:@"id"] forKey:@"id"];
-        [HttpRequestUtility sendPutFromAPIPath:@"speeches" withPath:@"" parameters:params runOnSuccess:^(MKNetworkOperation *completedOperation) {
+//        [params setObject:[_speechItem objectForKey:@"id"] forKey:@"id"];
+        [params setObject: _descTV.text forKey:@"description"];
+        [HttpRequestUtility sendPutFromAPIPath:@"speeches" withPath:[_speechItem objectForKey:@"id"] parameters:params runOnSuccess:^(MKNetworkOperation *completedOperation) {
             NSLog(@"add speeche%@",completedOperation.readonlyResponse);
             [self.navigationController popViewControllerAnimated:YES];
             [PromptUtility hideHUDInThreadWithController:self];
@@ -147,5 +148,64 @@
     return YES;
 }
 
+- (IBAction)likeButtonHandler:(id)sender{
+    [PromptUtility showHUDInController:self];
+    if (!_likedSpeech) {
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:3];
+        NSString *timestamp = [DatetimeUtility currentTimestampStringSince1970];
+        [params setObject:timestamp forKey:@"createdOn"];
+        [params setObject:[GlobalVariableManager sharedInstance].userID forKey:@"userID"];
+        [params setObject:[_speechItem objectForKey:@"id"] forKey:@"speechID"];
+        
+        [HttpRequestUtility sendPostFromAPIPath:@"speech-interested" withPath:@"" parameters:params runOnSuccess:^(MKNetworkOperation *completedOperation) {
+            _likedSpeech = YES;
+            [_likeButton setSelected:YES];
+            [PromptUtility hideHUDInThreadWithController:self];
+        } runOnFailed:^(MKNetworkOperation *completedOperation, NSError *error) {
+            [PromptUtility hideHUDInThreadWithController:self];
+        }];
+    }
+    else{
+        if (_currentInterest) {
+            NSString *interestID = [_currentInterest objectForKey:@"id"];
+            [HttpRequestUtility sendDeleteFromAPIPath:@"speech-interested" withPath:interestID parameters:nil runOnSuccess:^(MKNetworkOperation *completedOperation) {
+                _likedSpeech = NO;
+                [_likeButton setSelected:NO];
+                [PromptUtility hideHUDInThreadWithController:self];
+            } runOnFailed:^(MKNetworkOperation *completedOperation, NSError *error) {
+                [PromptUtility hideHUDInThreadWithController:self];
+            }];
+
+        }
+    }
+}
+
+- (void)initializeLikeButton{
+    [_likeButton setBackgroundImage:[UIImage imageNamed:@"unlike.png"] forState:UIControlStateNormal];
+    [_likeButton setBackgroundImage:[UIImage imageNamed:@"like.png"] forState:UIControlStateHighlighted];
+    [_likeButton setBackgroundImage:[UIImage imageNamed:@"like.png"] forState:UIControlStateSelected];
+    
+    if ([self isLikedSpeech]) {
+        [_likeButton setSelected:YES];
+    }else{
+        [_likeButton setSelected:NO];
+    }
+}
+
+
+- (BOOL)isLikedSpeech{
+    
+    NSArray *interestedList = [_speechItem objectForKey:@"interests"];
+    
+    for (NSMutableDictionary *interestedUser in interestedList) {
+        if ([[interestedUser objectForKey:@"userID"] isEqualToString:[GlobalVariableManager sharedInstance].userID]) {
+            _likedSpeech = YES;
+            _currentInterest = interestedUser;
+            return _likedSpeech;
+        }
+    }
+    
+    return _likedSpeech;
+}
 
 @end

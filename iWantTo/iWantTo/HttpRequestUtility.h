@@ -16,4 +16,6 @@
 + (void)sendPostFromAPIPath:(NSString *)api withPath:(NSString *)path parameters:(NSDictionary *)params runOnSuccess:(void(^)(MKNetworkOperation *completedOperation)) onSuccess runOnFailed:(void(^)(MKNetworkOperation *completedOperation, NSError *error)) onFailed;
 + (void)sendGetFromAPIPath:(NSString *)api withPath:(NSString *)path parameters:(NSDictionary *)params runOnSuccess:(void(^)(MKNetworkOperation *completedOperation)) onSuccess runOnFailed:(void(^)(MKNetworkOperation *completedOperation, NSError *error)) onFailed;
 + (void)sendPutFromAPIPath:(NSString *)api withPath:(NSString *)path parameters:(NSDictionary *)params runOnSuccess:(void(^)(MKNetworkOperation *completedOperation)) onSuccess runOnFailed:(void(^)(MKNetworkOperation *completedOperation, NSError *error)) onFailed;
++ (void)sendDeleteFromAPIPath:(NSString *)api withPath:(NSString *)path parameters:(NSDictionary *)params runOnSuccess:(void(^)(MKNetworkOperation *completedOperation)) onSuccess runOnFailed:(void(^)(MKNetworkOperation *completedOperation, NSError *error)) onFailed;
+
 @end

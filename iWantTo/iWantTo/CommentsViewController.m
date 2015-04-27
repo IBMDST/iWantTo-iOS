@@ -43,6 +43,13 @@
     [self deregisterFromKeyboardNotifications];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [_commentsListTable reloadData];
+    [_commentsListTable setNeedsLayout];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -167,5 +174,6 @@
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
 }
+
 
 @end

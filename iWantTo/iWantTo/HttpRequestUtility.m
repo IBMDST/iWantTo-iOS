@@ -62,4 +62,21 @@
     [netEngine enqueueOperation:op];
 }
 
++ (void)sendDeleteFromAPIPath:(NSString *)api withPath:(NSString *)path parameters:(NSDictionary *)params runOnSuccess:(void(^)(MKNetworkOperation *completedOperation)) onSuccess runOnFailed:(void(^)(MKNetworkOperation *completedOperation, NSError *error)) onFailed{
+        GlobalVariableManager *varManager = [GlobalVariableManager sharedInstance];
+        MKNetworkEngine *netEngine = [[MKNetworkEngine alloc] initWithHostName:varManager.baseURL portNumber:varManager.port apiPath:api customHeaderFields:nil];
+        MKNetworkOperation *op = [netEngine operationWithPath:path params:params httpMethod:@"DELETE"];
+        
+        [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+            NSLog(@"response: %@", completedOperation.responseJSON);
+            onSuccess(completedOperation);
+            
+        } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
+            DLog(@"Server error: %@", [error localizedDescription]);
+            onFailed(completedOperation, error);
+        }];
+        
+        [netEngine enqueueOperation:op];
+}
+
 @end
