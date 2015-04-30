@@ -21,7 +21,6 @@
 		037B96161AC4248A00515377 /* SpeechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B96151AC4248A00515377 /* SpeechViewController.m */; };
 		03A6EA971AEE2B9700B70ABA /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 03A6EA951AEE2B9700B70ABA /* like.png */; };
 		03A6EA9A1AEE2C9100B70ABA /* unlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 03A6EA991AEE2C9100B70ABA /* unlike.png */; };
-		03E9FBDA1AC4418A00A82776 /* diangezan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03E9FBD91AC4418A00A82776 /* diangezan.jpg */; };
 		03E9FBDE1AC57E9000A82776 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9FBDD1AC57E9000A82776 /* CommentsViewController.m */; };
 		03E9FBFE1AC9494400A82776 /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9FBEA1AC9494400A82776 /* NSData+MKBase64.m */; };
 		03E9FBFF1AC9494400A82776 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9FBEC1AC9494400A82776 /* NSDate+RFC1123.m */; };
@@ -79,7 +78,6 @@
 		037B96151AC4248A00515377 /* SpeechViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechViewController.m; sourceTree = "<group>"; };
 		03A6EA951AEE2B9700B70ABA /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
 		03A6EA991AEE2C9100B70ABA /* unlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlike.png; sourceTree = "<group>"; };
-		03E9FBD91AC4418A00A82776 /* diangezan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = diangezan.jpg; sourceTree = "<group>"; };
 		03E9FBDC1AC57E9000A82776 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
 		03E9FBDD1AC57E9000A82776 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		03E9FBE91AC9494400A82776 /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 			children = (
 				03A6EA951AEE2B9700B70ABA /* like.png */,
 				03A6EA991AEE2C9100B70ABA /* unlike.png */,
-				03E9FBD91AC4418A00A82776 /* diangezan.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -443,7 +440,6 @@
 			files = (
 				037A0CCE1AB965CB0056F65E /* Main.storyboard in Resources */,
 				03A6EA971AEE2B9700B70ABA /* like.png in Resources */,
-				03E9FBDA1AC4418A00A82776 /* diangezan.jpg in Resources */,
 				03A6EA9A1AEE2C9100B70ABA /* unlike.png in Resources */,
 				037A0CD31AB965CB0056F65E /* LaunchScreen.xib in Resources */,
 				037A0CD01AB965CB0056F65E /* Images.xcassets in Resources */,
@@ -616,7 +612,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "072e6929-d4ac-423c-a275-46993130cf64";
+				PROVISIONING_PROFILE = "a6c63211-a3e8-43e2-8650-564919828213";
 			};
 			name = Debug;
 		};
@@ -631,7 +627,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "072e6929-d4ac-423c-a275-46993130cf64";
+				PROVISIONING_PROFILE = "a6c63211-a3e8-43e2-8650-564919828213";
 			};
 			name = Release;
 		};
